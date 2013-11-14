@@ -1,7 +1,4 @@
-Dosada
-======
-
-<h1>Bootstrap 3:</h1> http://getbootstrap.com/ <br>
+<h3 style="display: inline-block;">Bootstrap 3:</h3> http://getbootstrap.com/ <br>
               
 bootstrap.min.css => vendor/assets/stylesheets<br>
 bootstrap.min.js  => vendor/assets/javascript<br>
