@@ -1,11 +1,11 @@
 Dosada
 ======
 
-Bootstrap 3: http://getbootstrap.com/ <br>
+<br>Bootstrap 3:<br> http://getbootstrap.com/ <br>
               
-bootstrap.min.css -> vendor/assets/stylesheets<br>
-bootstrap.min.js  -> vendor/assets/javascript<br>
-fonts -> vendor/assets<br>
+bootstrap.min.css => vendor/assets/stylesheets<br>
+bootstrap.min.js  => vendor/assets/javascript<br>
+fonts => vendor/assets<br>
 
 <blockquote>@font-face {<br>
   font-family: 'Glyphicons Halflings';<br>
