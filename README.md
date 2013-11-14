@@ -1,7 +1,7 @@
 Dosada
 ======
 
-<b>Bootstrap 3:<b> http://getbootstrap.com/ <br>
+<h1>Bootstrap 3:</h1> http://getbootstrap.com/ <br>
               
 bootstrap.min.css => vendor/assets/stylesheets<br>
 bootstrap.min.js  => vendor/assets/javascript<br>
