@@ -28,3 +28,6 @@ fonts => vendor/assets<br>
  //= require turbolinks<br>
  //= require_tree .<br>
 </blockquote>
+
+<h3> Stuff </h3>
+<b> helper_method </h3>
