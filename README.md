@@ -31,6 +31,6 @@ fonts => vendor/assets<br>
 
 <h3> Stuff </h3>
 <b> helper_method </b>
-The method helper_method is to explicitly share some methods defined in the controller to make them available for the view.
-This is used for any method that you need to access from both controllers and helpers/views. 
-Standard helper methods are not available in controllers. Common use in application controller.
+<p align="justify">The method helper_method is to explicitly share some methods defined in the controller to make  them 
+availablefor the view. This is used for any method that you need to access from both controllers and 
+helpers/views. Standard helper methods are not available in controllers. Common use in application controller.</p>
