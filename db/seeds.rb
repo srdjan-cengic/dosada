@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Category.delete_all
+Category.create(:id => 1, :category_name => "slike")
+Category.create(:id => 2, :category_name => "statusi")

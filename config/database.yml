@@ -17,7 +17,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: dosada-development
+  database: dosada-ba-development
   pool: 5
   username: postgres
   password: postgres
