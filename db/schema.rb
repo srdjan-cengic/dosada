@@ -11,13 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131114231109) do
+ActiveRecord::Schema.define(version: 20131115103438) do
 
   create_table "categories", force: true do |t|
     t.string   "category_name", limit: 50, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "entries", force: true do |t|
+    t.string   "status",      limit: 1, default: "P"
+    t.integer  "user_id",                             null: false
+    t.integer  "category_id",                         null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "entries", ["user_id", "category_id"], name: "index_entries_on_user_id_and_category_id", using: :btree
+
+  create_table "storages", force: true do |t|
+    t.string   "title",      limit: 80, null: false
+    t.text     "content",               null: false
+    t.integer  "entry_id",              null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "storages", ["entry_id"], name: "index_storages_on_entry_id", using: :btree
+  add_index "storages", ["entry_id"], name: "storages_entry_id_key", unique: true, using: :btree
 
   create_table "user_roles", force: true do |t|
     t.string   "role_name",  limit: 20, null: false
@@ -27,13 +48,22 @@ ActiveRecord::Schema.define(version: 20131114231109) do
 
   create_table "users", force: true do |t|
     t.string   "username",      limit: 25, null: false
-    t.string   "password_hash",            null: false
     t.string   "password_salt",            null: false
+    t.string   "password_hash",            null: false
     t.integer  "user_role_id",             null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "users", ["user_role_id"], name: "index_users_on_user_role_id", using: :btree
+
+  create_table "votes", force: true do |t|
+    t.integer  "count",      default: 0
+    t.integer  "storage_id",             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votes", ["storage_id"], name: "index_votes_on_storage_id", using: :btree
 
 end
