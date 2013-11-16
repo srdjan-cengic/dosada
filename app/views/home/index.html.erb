@@ -1,1 +1,35 @@
+<% @posts.each do |post| %>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3 center-content"> <!-- U odnosu na kontenjer -->
+			<div class="custom-fit">
+				<h3 class="post_title">
+					<%= post.title %>
+				</h3>
+
+				<% if post.category_name == "slike" %>
+					<%= image_tag(post.content, class: 'img-responsive') %>
+				<% else %>
+					<p class="status"> <%= post.content %> </p>
+				<% end %>
+
+				<div class="likes">
+					<%= link_to root_path, :class => "vote_up btn" do %>
+						<span class="glyphicon glyphicon-circle-arrow-up"></span>
+					<% end %>
+					<%= link_to root_path, :class => "vote_down btn", :remote => true do %>
+						<span class="glyphicon glyphicon-circle-arrow-down"></span>
+					<% end %>
+
+					<span id='like_counter-<%= post.storage_id %>'>
+						<%= post.votes %>
+					</span>
+					<button type="button" class="btn btn-default btn-custom-search">
+  				  <span class="glyphicon glyphicon-search"></span>
+			    </button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+<% end %>
 
