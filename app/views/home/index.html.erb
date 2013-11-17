@@ -12,20 +12,16 @@
 					<p class="status"> <%= post.content %> </p>
 				<% end %>
 
-				<div class="likes">
-					<%= link_to root_path, :class => "vote_up btn" do %>
-						<span class="glyphicon glyphicon-circle-arrow-up"></span>
-					<% end %>
-					<%= link_to root_path, :class => "vote_down btn", :remote => true do %>
-						<span class="glyphicon glyphicon-circle-arrow-down"></span>
-					<% end %>
+				<div id="likes_<%= post.storage_id %>">
+					<%= link_to "+1", vote_up_path(storage_id: post.storage_id), 
+									  class: "vote_up btn btn-success btn-default active", :remote => true %>
 
-					<span id='like_counter-<%= post.storage_id %>'>
+					<%= link_to "-1", vote_down_path(storage_id: post.storage_id), 
+					                  class: "vote_down btn btn-danger btn-default active", :remote => true %>
+
+					<span class='like_counter'>
 						<%= post.votes %>
 					</span>
-					<button type="button" class="btn btn-default btn-custom-search">
-  				  <span class="glyphicon glyphicon-search"></span>
-			    </button>
 				</div>
 			</div>
 		</div>

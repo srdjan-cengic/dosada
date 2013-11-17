@@ -9,8 +9,8 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require bootstrap.min
- *= require_tree .
  *= require_self
+ *= require_tree .
  */
 
  @font-face {
@@ -26,7 +26,7 @@
  This can be accomplished by writing your own styles for the classes used in Bootstrap.
  For the overrides to be successful, remember to add your code after Bootstrap’s have been declared.*/
  body {
- 	padding: 50px;
+ 	padding: 60px;
  }
  .btn-custom-search {
  	margin-left: 10px;
@@ -35,9 +35,11 @@
  .a-custom-brand {
  	font: 16px Tahoma;
  }
- .likes {
+ div[id*="likes"] {
  	display: inline-block;
  	float: right;
+ 	padding-top: 2px;
+ 	padding-right: 10px;
  }
  .center-content {
  	text-align: center;
@@ -46,26 +48,15 @@
  	display: inline-block;
  	text-align: left;
  }
-body {
- 	padding: 50px;
- }
- .btn-custom-search {
- 	margin-left: 10px;
- 	margin-top: 9px;
- }
- .a-custom-brand {
+div[id*="likes"]:last-child {
  	font: 16px Tahoma;
  }
- .likes {
- 	display: inline-block;
- 	float: right;
+ .vote_up {
+ 	padding: 6px 10px 6px 10px;
  }
- .center-content {
- 	text-align: center;
+ .vote_up, .vote_down {
+ 	font-weight: bold;
  }
- .custom-fit {
- 	display: inline-block;
- 	text-align: left;
- }.likes:last-child {
- 	font: 22px Tahoma;
+ .status {
+ 	text-align: justify;
  }

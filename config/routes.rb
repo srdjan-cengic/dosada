@@ -4,7 +4,10 @@ Dosada::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
    root 'home#index'
-
+  
+  # Non-restful routes
+   get 'vote_up/:storage_id' => 'home#vote_up', as: :vote_up
+   get 'vote_down/:storage_id' => 'home#vote_down', as: :vote_down 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
