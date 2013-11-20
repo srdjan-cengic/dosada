@@ -60,3 +60,12 @@ div[id*="likes"]:last-child {
  .status {
  	text-align: justify;
  }
+ .custom-alert {
+ 	display: inline-block;
+ 	float: right;
+ 	margin-top: 0;
+ }
+ .custom-signed {
+ 	text-decoration: underline;
+ 	color: blue;
+ }

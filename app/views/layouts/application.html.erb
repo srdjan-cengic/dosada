@@ -8,7 +8,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
-  <!-- container > row > span arrangement -->
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
       <div class="navbar-header">
@@ -18,8 +17,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-
-           <a class="navbar-brand a-custom-brand" href="#"> Dosada.ba | guest user </a>
+            <a class="navbar-brand a-custom-brand" href="#"> Dosada.ba </a>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -46,18 +44,69 @@
               <input type="text" class="form-control" placeholder="Search by post title...">
             </div>
           </form>
-
+          
           <ul class="nav navbar-nav navbar-right">
-           <li><%= link_to "Login", root_path %></li>
-           <li><%= link_to "Sign up", root_path %></li>
+           <% if current_user %>
+              <li>
+                <p class="navbar-text">
+                  Signed in as <%= "#{current_user.username}" %> |
+                  <%= link_to "Upload", root_path %> |
+                  <%= link_to "Log out", log_out_path %>
+                </p>
+              </li>
+           <% else %>
+              <li><%= link_to "Login", "#loginModal", data: { toggle: 'modal'} %></li>
+              <li><%= link_to "Sign up", session_path(id: 5, a: "aaaa", b: "bbbb") %></li>
+           <% end %>
           </ul>
       </div>
     </div>
   </div>
+  <% if flash[:notice] %>
+    <div class="alert alert-danger alert-dismissable custom-alert">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
   
   <div class="container">
    <%= yield %>
   </div>
-  
+  <!-- We want to load modal last, user will click on login atm when everything will be loaded -->
+  <div class="modal fade" id="loginModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel"> Login page </h4>
+        </div>
+        
+        <div class="modal-body">
+            <%= form_tag sessions_path, class: 'form-horizontal', role: 'form' do %>
+                <div class='form-group'>
+                    <%= label_tag :username, 'Username', class: 'col-sm-2 control-label' %>
+                    <div class="col-sm-10">
+                        <%= text_field_tag :username, nil, placeholder: 'Username', class: 'form-control' %>
+                    </div>
+                </div>
+
+                <div class='form-group'>
+                    <%= label_tag :password, 'Password', class: 'col-sm-2 control-label' %>
+                    <div class="col-sm-10">
+                        <%= password_field_tag :password, nil, placeholder: 'Password', class: 'form-control' %>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <%= submit_tag "Log in", class: 'btn btn-default' %>
+                  </div>
+                </div>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
