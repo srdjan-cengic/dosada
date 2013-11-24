@@ -14,8 +14,4 @@ class SessionsController < ApplicationController
   	session[:user_id] = nil
   	redirect_to root_path
   end
-
-  def show
-  	render :text => "#{params[:a]} #{params[:b]} #{params[:id]}"
-  end
 end

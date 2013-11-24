@@ -22,7 +22,8 @@ Dosada::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
    root 'home#index'
-   resources :sessions, only: [:create, :show]
+   resources :sessions, only: [:create]
+   resources :users, only: [:new, :create]
 
   # Non-restful routes
    get 'vote_up/:storage_id' => 'home#vote_up', as: :vote_up
