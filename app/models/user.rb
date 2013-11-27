@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 	belongs_to :user_role
 	has_many :entries
 
-	before_save :encrypt_password
+	before_save :encrypt_password #callback, another cool part of Active Record;
 
 	attr_accessor :password
 	validates :password, confirmation: true
